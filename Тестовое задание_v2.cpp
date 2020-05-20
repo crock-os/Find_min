@@ -63,13 +63,14 @@ void TestFunction()
 {
     int a;
     
-    cout << "Input number of test (1, 2, 3 or 4) or 5 to use all tests: ";
+    cout << "Input number of test (1, 2, 3, 4 or 5) or 6 to use all tests: ";
     cin >> a;
     
     vector<int> Mass1(101);
     vector<int> Mass2(20, 1);
     vector<int> Mass3;
     vector<int> Mass4(20, 0);
+    vector<int> Mass5{1, 2, -1};
     
     switch(a)
     {
@@ -98,9 +99,15 @@ void TestFunction()
             cout << "Test 4:" << endl;
             assert(Function(Mass4) == Mass4.size());
         break;
+            
+         //Отработка 5 тестового массива
+        case 5:
+            cout << "Test 5:" << endl;
+            assert(Function(Mass5) == 0);
+        break;
         
         //Отработка всех тестовых массивов
-        case 5:
+        case 6:
         
             for (int i = 0; i < Mass1.size(); i++)
                 Mass1[i] = -50 + i;
@@ -119,6 +126,9 @@ void TestFunction()
                 Mass4[i] = 0;
             cout << "Test 4:" << endl;
             assert(Function(Mass4) == Mass4.size());
+            
+            cout << "Test 5:" << endl;
+            assert(Function(Mass5) == 0);
         break;
         
         default:
